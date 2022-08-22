@@ -2,7 +2,6 @@
 
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\ORMSetup;
-//use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\Common\Annotations\AnnotationReader;
@@ -24,10 +23,10 @@ AnnotationRegistry::loadAnnotationClass('class_exists');
 // NOTE: if the flag is set TRUE caching is done in memory
 //       if set to FALSE, will try to use APC, Xcache, Memcache or Redis caching
 //       see: http://docs.doctrine-project.org/en/latest/reference/advanced-configuration.html
-//$config   = Setup::createConfiguration(TRUE);
 $config = ORMSetup::createConfiguration(TRUE);
 $config->setMetadataDriverImpl($driver);
-$dbParams = include __DIR__ . '/params.php';
+$paramPath = __DIR__ . '/params.php';
+$dbParams = include $paramPath;
 try {
     return EntityManager::create($dbParams, $config);
 } catch (ORMException $e) {

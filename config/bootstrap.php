@@ -2,7 +2,8 @@
 
 // doctrine_autoloader.php
 // returns an instance of Composer\Autoload\ClassLoader
-$autoLoader = include __DIR__ . '/../vendor/autoload.php';
+$vendorPath = __DIR__ . '/../vendor/autoload.php';
+$autoLoader = include $vendorPath;
 
 // configure autoloader using add(prefix, path)
 $autoLoader->add('Doctrine\Annotations', __DIR__ . '../vendor/doctrine/annotations/lib');
