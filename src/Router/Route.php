@@ -2,13 +2,16 @@
 
 namespace App\Router;
 
+/**
+ * Représente une route
+ */
 class Route
 {
     /**
-     * @param string $schema
-     * @param string $name
-     * @param string $controller
-     * @param string $method
+     * @param string $schema Le format de l'url
+     * @param string $name Le nom de la route
+     * @param string $controller Le controller à appeler
+     * @param string $method La méthode à appeler dans le controller
      */
     public function __construct(
         public string $schema,

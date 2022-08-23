@@ -9,7 +9,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 
 $paths = array(
     __DIR__ . '\..\src\Entity',
-    __DIR__ . '\..\src\Service',
+    __DIR__ . '\..\src\src',
     __DIR__ . '\..\src\Controller',
     __DIR__ . '\..\src\Repository'
 );

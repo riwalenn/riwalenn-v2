@@ -7,7 +7,7 @@ use App\Router\Route;
 use App\Router\Router;
 use Exception;
 
-class Bootstrap
+class App
 {
     private Router $router;
 
@@ -27,12 +27,12 @@ class Bootstrap
         $this->router->addRoute($homeRoute);
 
         try {
-            $route = $this->router->findRoute();
+            $route = $this->router->findRoute(); // On demande au routeur de trouver une route
             if ($route instanceof Route) {
                 // Si $route est une instance de Route, il y a une correspondance
-                $controller = new $route->controller;
-                $method = $route->method;
-                return $controller->$method();
+                $controller = new $route->controller; // On instancie le controller de la route
+                $method = $route->method; // On enregistre la méthode pour pouvoir l'appeler sur le controller
+                return $controller->$method(); // On exécute la méthode
             }
         } catch (Exception $e) {
             return $e->getMessage();
